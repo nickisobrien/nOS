@@ -1,4 +1,3 @@
 # nOS
 
-In the works:
-	Bootloader from scratch
+This is the build directory for nOS, here you'll find scripts for building a complete nOS OS!

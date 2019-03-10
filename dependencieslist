@@ -1,0 +1,11 @@
+git
+subversion
+build-essential
+bison
+flex
+gmp
+mpc
+mpfr
+texinfo
+cloog
+isl

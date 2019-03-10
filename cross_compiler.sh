@@ -4,6 +4,13 @@ set -euo pipefail
 
 source ./common.sh
 
+function onexit {
+	if [ $? -ne 0 ]; then
+		echo "FAIL!"
+	fi
+}
+trap onexit EXIT
+
 # BINUTILS
 git clone git://sourceware.org/git/binutils-gdb.git $BINUTILS_SRC
 mkdir $BINUTILS_SRC/build && cd $BINUTILS_SRC/build

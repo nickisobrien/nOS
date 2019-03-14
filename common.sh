@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PREFIX="$HOME/opt/cross"
-TARGET=x86_64-elf
+TARGET=i686-elf
 PATH="$PREFIX/bin:$PATH"
 
 BINUTILS_SRC="$PREFIX/nOS-binutils-gdb"

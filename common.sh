@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PREFIX="$HOME/opt/cross"
+PREFIX="$HOME/tools/cross"
 TARGET=i686-elf
 PATH="$PREFIX/bin:$PATH"
 

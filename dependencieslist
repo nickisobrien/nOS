@@ -3,9 +3,10 @@ subversion
 build-essential
 bison
 flex
-gmp
+libgmp3-dev
 mpc
-mpfr
+libmpc-dev
+libmpfr-dev
 texinfo
 cloog
 isl

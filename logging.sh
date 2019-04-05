@@ -9,3 +9,10 @@ if [ ! -d ${HOME}/logs ]; then
 fi
 mkdir -p ${log_dir}
 echo "Logging to ${log_dir}"
+
+function onexit {
+	if [ $? -ne 0 ]; then
+		echo "FAIL! Check log directory ${log_dir}"
+	fi
+}
+trap onexit EXIT

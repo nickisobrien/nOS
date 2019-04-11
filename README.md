@@ -1,6 +1,4 @@
 # nOS
 
-### This is the build directory for nOS, here you'll find scripts for building a complete nOS OS!
-
-#### Bootloader:
-https://github.com/nickisobrien/nOS-boot
+nOS is a project driven by desire to gain a better understanding of operating systems because:
+"What I cannot create, I do not understand"? -Richard P. Feynman

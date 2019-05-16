@@ -30,35 +30,21 @@ u32int k_strlen(const char *str)
 	return i;
 }
 
-void	*k_memcpy(void *restrict str1, const void *restrict str2, u32int n)
+void	*k_memcpy(void *dest, const void *src, u32int n)
 {
-	char *iter;
-	char *citer;
-
-	iter = str1;
-	citer = (char *)str2;
-	while (n > 0)
+	while (n)
 	{
-		*iter = *citer;
-		iter++;
-		citer++;
+		((char *)dest)[n] = ((char *)src)[n];
 		n--;
 	}
-	return (str1);
+	return dest;
 }
 
-void	*k_memset(void *str, int c, size_t n)
+void	*k_memset(void *dest, int c, size_t n)
 {
-	char *iter;
-
-	iter = str;
-	while (n > 0)
-	{
-		*iter = c;
-		iter++;
-		n--;
-	}
-	return (str);
+	while (n)
+		((char *)dest)[n--] = (char)c;
+	return (dest);
 }
 
 void	k_putnbr(int nb)

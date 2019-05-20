@@ -12,7 +12,7 @@ typedef struct registers
 } registers_t;
 
 // defined in isr.s unless mentioned otherwise
-extern void isr0 ();
+extern void isr0();
 extern void isr1();
 extern void isr2();
 extern void isr3();
@@ -44,6 +44,8 @@ extern void isr28();
 extern void isr29();
 extern void isr30();
 extern void isr31();
+
 extern void isr32();
+extern void isr33();
 
 #endif

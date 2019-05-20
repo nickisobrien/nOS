@@ -1,5 +1,6 @@
 // some klib stuff (needs to be better organized)
 #include "common.h"
+#include "terminal.h"
 
 // write to ports
 void outb(u16int port, u8int value)
@@ -51,7 +52,7 @@ void	k_putnbr(int nb)
 {
 	if (nb < 0)
 	{
-		terminal_putchar('-');
+		k_putchar('-');
 		nb = -nb;
 	}
 	if (nb >= 10)
@@ -60,6 +61,17 @@ void	k_putnbr(int nb)
 		k_putnbr(nb % 10);
 	}
 	else
-		terminal_putchar(nb + '0');
+		k_putchar(nb + '0');
+}
+
+void	k_putchar(char c)
+{
+	terminal_putchar(c);
+}
+
+void	k_putstr(const char *str)
+{
+	for (size_t i = 0; str[i]; i++)
+		terminal_putchar(str[i]);
 }
 

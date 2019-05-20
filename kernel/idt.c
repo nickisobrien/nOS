@@ -9,12 +9,29 @@ static void idt_set_gate(u8int,u32int,u16int,u8int);
 idt_entry_t idt_entries[256];
 idt_ptr_t	idt_ptr;
 
+// map to 32-47
+static void irq_remap(void)
+{
+    outb(0x20, 0x11);
+    outb(0xA0, 0x11);
+    outb(0x21, 0x20);
+    outb(0xA1, 0x28);
+    outb(0x21, 0x04);
+    outb(0xA1, 0x02);
+    outb(0x21, 0x01);
+    outb(0xA1, 0x01);
+    outb(0x21, 0x0);
+    outb(0xA1, 0x0);
+}
+
 void init_idt()
 {
 	idt_ptr.limit = sizeof(idt_entry_t) * 256 -1;
 	idt_ptr.base  = (u32int)&idt_entries;
 
 	k_memset(&idt_entries, 0, sizeof(idt_entry_t)*256);
+
+	irq_remap();
 
 	// irqs 8, 10-14 (inclusive) have error codes, the rest don't
 	idt_set_gate( 0, (u32int)isr0 , 0x08, 0x8E); // Division By Zero Exception
@@ -49,6 +66,9 @@ void init_idt()
 	idt_set_gate( 29, (u32int)isr29 , 0x08, 0x8E); // Reserved Exceptions 19-31
 	idt_set_gate( 30, (u32int)isr30 , 0x08, 0x8E); // Reserved Exceptions 19-31
 	idt_set_gate( 31, (u32int)isr31 , 0x08, 0x8E); // Reserved Exceptions 19-31
+
+	idt_set_gate( 32, (u32int)isr32 , 0x08, 0x8E); // timer?
+	idt_set_gate( 33, (u32int)isr33 , 0x08, 0x8E); // keyboard?
 
 	idt_set((u32int)&idt_ptr);
 }

@@ -51,6 +51,9 @@ isr_noerrcode 29
 isr_noerrcode 30
 isr_noerrcode 31
 
+isr_noerrcode 32
+isr_noerrcode 33
+
 # This is the common ISR stub. It saves the processor state, sets
 # up for kernel mode segments, calls the C-level fault handler,
 # and finally restores the stack frame.
